@@ -1,6 +1,8 @@
 # These are supported funding model platforms
-
-github: 2e7f1b8d16f0ec516f2a4eaef72abe83a52bf4ad # Replace with up to 4 GitHub Sponsors-enabled usernames e.g., [user1, user2]
+#0xdf9c8ad0be11a32a678cb0d55d124febdf477be2fcc1215bf2424d62519b08f11488cd4ec8c9cab5b7cac59009ffdc8805cc3dea1efcf0da1d7d851cb74423b01b
+#35yK0L4RoypnjLDVXRJP699He+L8wSFb8kJNYlGbCPEUiM1OyMnKtbfKxZAJ/9yIBcw96h788NodfYUct0QjsBs=
+#0x6661dF610053aCA8Dd7058869111e07B5faB018D
+m # Replace with up to 4 GitHub Sponsors-enabled usernames e.g., [user1, user2]
 patreon: # Replace with a single Patreon username
 open_collective: # Replace with a single Open Collective username
 ko_fi: # Replace with a single Ko-fi username
@@ -9,4 +11,5 @@ community_bridge: # Replace with a single Community Bridge project-name e.g., cl
 liberapay: # Replace with a single Liberapay username
 issuehunt: # Replace with a single IssueHunt username
 otechie: # Replace with a single Otechie username
-custom: https://etherscan.io/address/0x6661dF610053aCA8Dd7058869111e07B5faB018D # Replace with up to 4 custom sponsorship URLs e.g., ['https://tronscan.org/#/address/TC4niCBnSQPxPiREkiwf2ipSMkGsTKyAsT', 'https://nearblocks.io/es/address/2f2e41380874f2bea499a2f5ae94b6ba909215f14f02640c904d46c2b3a66990']
+custom: ['https://etherscan.io/address/0x6661dF610053aCA8Dd7058869111e07B5faB018D']
+ # Replace with up to 4 custom sponsorship URLs e.g., ['https://tronscan.org/#/address/TC4niCBnSQPxPiREkiwf2ipSMkGsTKyAsT', 'https://nearblocks.io/es/address/2f2e41380874f2bea499a2f5ae94b6ba909215f14f02640c904d46c2b3a66990']
