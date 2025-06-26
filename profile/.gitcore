@@ -1,5 +1,6 @@
-#ignoring-files/*
-# Build and Release Folders
+
+# Build and Release Folders 
+kotlin@b1586a662d5fff6f3461c87b8601161bd766126e
 bin-debug/
 bin-release/
 [Oo]bj/
@@ -7,8 +8,8 @@ bin-release/
 
 # Other files and folders
 .settings/
-
-# Executables 
+{
+# ignoring-files executables 
 *.swf
 *.air
 *.ipa
@@ -77,3 +78,4 @@ package-lock.json
 
 #tenderly fork data
 tenderlyTestnetData.json
+}
