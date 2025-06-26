@@ -1,3 +1,4 @@
+#ignoring-files/*
 # Build and Release Folders
 bin-debug/
 bin-release/
@@ -7,7 +8,7 @@ bin-release/
 # Other files and folders
 .settings/
 
-# Executables
+# Executables 
 *.swf
 *.air
 *.ipa
@@ -22,7 +23,7 @@ bin-release/
 # should NOT be excluded as they contain compiler settings and other important
 # information for Eclipse / Flash Builder.
 
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# See  https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
 /node_modules
