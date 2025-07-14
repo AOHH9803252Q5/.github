@@ -1,0 +1,478 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0<!DOCTYPE html>
+<html data-bootstrap="login_app" lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Stripe Login | Sign in to the Stripe Dashboard</title>
+    <meta name="viewport" content="width=device-width">
+      <meta name="description" content="Sign in to the Stripe Dashboard to manage business payments and operations in your account. Manage payments and refunds, respond to disputes and more.">
+
+          <link rel="alternate" hreflang="de-DE" href="https://dashboard.stripe.com/login?locale=de-DE">
+          <link rel="alternate" hreflang="en-AU" href="https://dashboard.stripe.com/login?locale=en-AU">
+          <link rel="alternate" hreflang="en-CA" href="https://dashboard.stripe.com/login?locale=en-CA">
+          <link rel="alternate" hreflang="en-GB" href="https://dashboard.stripe.com/login?locale=en-GB">
+          <link rel="alternate" hreflang="en-IE" href="https://dashboard.stripe.com/login?locale=en-IE">
+          <link rel="alternate" hreflang="en-IN" href="https://dashboard.stripe.com/login?locale=en-IN">
+          <link rel="alternate" hreflang="en-NZ" href="https://dashboard.stripe.com/login?locale=en-NZ">
+          <link rel="alternate" hreflang="en-SG" href="https://dashboard.stripe.com/login?locale=en-SG">
+          <link rel="alternate" hreflang="es-ES" href="https://dashboard.stripe.com/login?locale=es-ES">
+          <link rel="alternate" hreflang="es-419" href="https://dashboard.stripe.com/login?locale=es-419">
+          <link rel="alternate" hreflang="fr-FR" href="https://dashboard.stripe.com/login?locale=fr-FR">
+          <link rel="alternate" hreflang="fr-CA" href="https://dashboard.stripe.com/login?locale=fr-CA">
+          <link rel="alternate" hreflang="id-ID" href="https://dashboard.stripe.com/login?locale=id-ID">
+          <link rel="alternate" hreflang="it-IT" href="https://dashboard.stripe.com/login?locale=it-IT">
+          <link rel="alternate" hreflang="ja-JP" href="https://dashboard.stripe.com/login?locale=ja-JP">
+          <link rel="alternate" hreflang="nl-NL" href="https://dashboard.stripe.com/login?locale=nl-NL">
+          <link rel="alternate" hreflang="pt-BR" href="https://dashboard.stripe.com/login?locale=pt-BR">
+          <link rel="alternate" hreflang="sv-SE" href="https://dashboard.stripe.com/login?locale=sv-SE">
+          <link rel="alternate" hreflang="th-TH" href="https://dashboard.stripe.com/login?locale=th-TH">
+          <link rel="alternate" hreflang="zh-Hans" href="https://dashboard.stripe.com/login?locale=zh-Hans">
+
+            <link rel="canonical" href="https://dashboard.stripe.com/login">
+
+    
+<!-- nosemgrep: no-csp-nonce-usage -->
+<script nonce="+BhmIXZ7F/TOL9e8VoLkFg==">
+  var ENABLE_CLIENT_INIT_ERROR_DETECTOR = false;
+</script>
+
+<!-- nosemgrep: no-csp-nonce-usage -->
+<script nonce="+BhmIXZ7F/TOL9e8VoLkFg==">
+!(function() {
+  var APP_NAME = 'login';
+  var TINY_PRELOADED_CSRF_REGEX = /csrf_token&quot;:&quot;([^&]+)&quot;/;
+  var OAUTH_CONFIG_CSRF_REGEX = /csrf&quot;:&quot;([^&]+)&quot;/;
+  var LOAD_ERROR_REPORT_ENDPOINT = '/ajax/load_error_report';
+  var INIT_ERROR_REPORT_ENDPOINT = '/ajax/client_init_error_report';
+  var INIT_TIMEOUT_REPORT_ENDPOINT = '/ajax/client_init_timeout_report';
+  var SENTRY_INIT_TIMEOUT = 30000;
+  var SENTRY_INIT_TIMEOUT_ERROR_MESSAGE =
+    'Sentry failed to initialize within ' +
+    SENTRY_INIT_TIMEOUT +
+    'ms of pageload';
+
+  var hasSentryInitialized = false;
+
+  var failedJSScriptSrcs = [];
+  var failedCSSScriptHrefs = [];
+  var mutationObserver = null;
+
+  function extractCSRFToken() {
+    var tinyPreloaded = document.getElementById('tiny_preloaded_json');
+    var m;
+    if (tinyPreloaded) {
+      m = tinyPreloaded.textContent.match(TINY_PRELOADED_CSRF_REGEX);
+      return m ? m[1] : null;
+    }
+
+    var oauthConfig = document.getElementById('oauth_config');
+    if (oauthConfig) {
+      m = oauthConfig.textContent.match(OAUTH_CONFIG_CSRF_REGEX);
+      return m ? m[1] : null;
+    }
+
+    return null;
+  }
+
+  function stripeJSLoadError(e) {
+    if (e.target && (e.target.src || e.target.href)) {
+      var url = e.target.src || e.target.href;
+      failedJSScriptSrcs.push(url);
+    }
+  }
+
+  function stripeCSSLoadError(e) {
+    if (e.target && e.target.href) {
+      failedCSSScriptHrefs.push(e.target.href);
+    }
+  }
+
+  if ('MutationObserver' in window) {
+    mutationObserver = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        var script;
+        for (var i = 0; i < mutation.addedNodes.length; i++) {
+          script = mutation.addedNodes[i];
+          if (script.nodeName === 'SCRIPT') {
+            script.addEventListener('error', stripeJSLoadError, false);
+          }
+          if (script.nodeName === 'LINK') {
+            if (script.rel === 'stylesheet') {
+              script.addEventListener('error', stripeCSSLoadError, false);
+            } else if (script.rel === 'modulepreload' || script.rel === 'preload') {
+              script.addEventListener('error', stripeJSLoadError, false);
+            }
+          }
+        }
+      });
+    });
+    mutationObserver.observe(document, {childList: true, subtree: true});
+  }
+
+  function showErrorMessage() {
+    var loadingElement = document.querySelector('#app-loading');
+    if (loadingElement && loadingElement.style) {
+      loadingElement.style.display = 'none';
+    }
+    var errorMessageElement = document.querySelector('#app-loading-error-message');
+    if (errorMessageElement && errorMessageElement.style) {
+      errorMessageElement.style.display = 'flex';
+    }
+  }
+
+  function handleError(e) {
+    var data = new FormData();
+    data.append('app', APP_NAME);
+    if (e.message) {
+      data.append('message', e.message);
+    } else if (e.reason && e.reason.message) {
+      data.append('message', e.reason.message);
+    }
+
+    var csrfToken = extractCSRFToken();
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', INIT_ERROR_REPORT_ENDPOINT);
+    xhr.setRequestHeader('x-stripe-csrf-token', csrfToken);
+    xhr.setRequestHeader('X-Requested-With', 'xhr');
+    xhr.send(data);
+    // if sentry has initialized, error display will be handled in the client
+    if (!hasSentryInitialized) {
+      showErrorMessage();
+    }
+  }
+
+  function handleTimeout(e) {
+    var data = new URLSearchParams();
+    data.append('app', APP_NAME);
+    if (e.message) {
+      data.append('message', e.message);
+    } else if (e.reason && e.reason.message) {
+      data.append('message', e.reason.message);
+    }
+
+    if (window.__MERCHANT_ID__) {
+      data.append('merchant', window.__MERCHANT_ID__);
+    }
+
+    var csrfToken = extractCSRFToken();
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', INIT_TIMEOUT_REPORT_ENDPOINT);
+    xhr.setRequestHeader('x-stripe-csrf-token', csrfToken);
+    xhr.setRequestHeader('X-Requested-With', 'xhr');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send(data.toString());
+  }
+
+  // We need to get the CSRF token from tinyPreloaded, which is in
+  // document.body, but errors can occur before the DOM is loaded, so store
+  // those errors until the DOM is loaded, then report them.
+  var errorBuffer = [];
+
+  function bufferError(e) {
+    errorBuffer.push(e);
+  }
+
+  function handleBufferedErrors() {
+    for (var i = 0; i < errorBuffer.length; i++) {
+      handleError(errorBuffer[i]);
+    }
+    errorBuffer = [];
+  }
+
+  // As a final failsafe for any case where our global event handler does not
+  // catch an issue, emit a metric if the client app does not initialize within
+  // a set timeout. This is a separate metric because it's necessarily noisy,
+  // since client app initialization can be slow due to network latency and
+  // client hardware.
+  var sentryInitTimer = setTimeout(function() {
+    if (ENABLE_CLIENT_INIT_ERROR_DETECTOR) {
+      handleTimeout(new Error(SENTRY_INIT_TIMEOUT_ERROR_MESSAGE));
+    }
+  }, SENTRY_INIT_TIMEOUT);
+
+  window.addEventListener('DOMContentLoaded', function(e) {
+    if (mutationObserver) {
+      mutationObserver.disconnect();
+      mutationObserver = null;
+    }
+
+    if (failedJSScriptSrcs.length || failedCSSScriptHrefs.length) {
+      var csrfToken = extractCSRFToken();
+
+      var data = new URLSearchParams();
+      var i;
+      data.append('app', APP_NAME);
+      if (window.__MERCHANT_ID__) {
+        data.append('merchant', window.__MERCHANT_ID__);
+      }
+      for (i = 0; i < failedJSScriptSrcs.length; i++) {
+        data.append('scripts[]', failedJSScriptSrcs[i]);
+      }
+
+      for (i = 0; i < failedCSSScriptHrefs.length; i++) {
+        data.append('css[]', failedCSSScriptHrefs[i]);
+      }
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', LOAD_ERROR_REPORT_ENDPOINT);
+      xhr.setRequestHeader('x-stripe-csrf-token', csrfToken);
+      xhr.setRequestHeader('X-Requested-With', 'xhr');
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.send(data.toString());
+    }
+
+    // if sentry client has already initialized when DOMContentLoaded fires,
+    // then event handlers have been removed and we don't need to set up any
+    // new ones
+    if (ENABLE_CLIENT_INIT_ERROR_DETECTOR && !hasSentryInitialized) {
+      // Once DOM is loaded, handle buffered errors and then switch from
+      // buffering errors to just reporting them immediately
+      handleBufferedErrors();
+      window.removeEventListener('error', bufferError);
+      window.removeEventListener('unhandledrejection', bufferError);
+      window.addEventListener('error', handleError);
+      window.addEventListener('unhandledrejection', handleError);
+      window.__STRIPE_CLIENT_INIT_ERROR_DETECTOR_HANDOFF__ = function() {
+        hasSentryInitialized = true;
+        window.removeEventListener('error', handleError);
+        window.removeEventListener('unhandledrejection', handleError);
+        clearTimeout(sentryInitTimer);
+      };
+    }
+  });
+
+  if (ENABLE_CLIENT_INIT_ERROR_DETECTOR) {
+    window.addEventListener('error', bufferError);
+    window.addEventListener('unhandledrejection', bufferError);
+
+    window.__STRIPE_CLIENT_INIT_ERROR_DETECTOR_HANDOFF__ = function() {
+      hasSentryInitialized = true;
+      window.removeEventListener('error', bufferError);
+      window.removeEventListener('unhandledrejection', bufferError);
+      clearTimeout(sentryInitTimer);
+    };
+  }
+})();
+</script>
+
+
+    <link rel="stylesheet" href="https://b.stripecdn.com/dashboard-fe-statics-srv/assets/login.e2482919.css">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+
+    <script nonce="+BhmIXZ7F/TOL9e8VoLkFg==">
+!function(){if('PerformanceLongTaskTiming' in window){var g=window.__tti={e:[]};
+g.o=new PerformanceObserver(function(l){g.e=g.e.concat(l.getEntries())});
+g.o.observe({entryTypes:['longtask']})}}();
+</script>
+
+
+    <script src="https://js.stripe.com/v3/" ></script>
+
+    <meta name="apple-itunes-app" content="app-id=978516833, affiliate-data=1001l5Vp, app-argument=https://dashboard.stripe.com/login?redirect=%2Forg%2Fsearch%3Fquery%3Dis%253A%26search_context_id%3Dorg_6SpJC47zKVM7C8l0oyMS8cK%26type%3Dorganization%26fbclid%3DIwY2xjawLhZBdleHRuA2FlbQIxMQABHq5KChbBTwO8VJh6A4LPtK-bgGqdoExy_SUpT8VyALmJfTsL9s2cH6UZzZ9T_aem__EAva8Zj6TiY88xCdWuncQ">
+<link rel="manifest" href="/android_manifest.json">
+
+
+  </head>
+  <body style="background-color:#ffffff;">
+    <noscript>
+  <div class="NoJSView">
+    <div class="NoJSView-card">
+      <div class="NoJSView-content">
+        <div class="NoJSView-warningIconContainer">
+          <svg class="NoJSView-warningIcon" style="width: 64px;height: 64px;" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M10.115 1.308l5.635 11.269A2.365 2.365 0 0 1 13.634 16H2.365A2.365 2.365 0 0 1 .25 12.577L5.884 1.308a2.365 2.365 0 0 1 4.231 0zM8 10.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM8 9c.552 0 1-.32 1-.714V4.714C9 4.32 8.552 4 8 4s-1 .32-1 .714v3.572C7 8.68 7.448 9 8 9z" fill-rule="evenodd"></path></svg>
+        </div>
+
+        <div class="NoJSView-title">
+          JavaScript is currently disabled
+        </div>
+
+        <div class="NoJSView-body">
+          You need JavaScript for the best experience on Stripe. Please enable it in your browser settings.
+        </div>
+
+        <div class="NoJSView-linkContainer">
+          <a
+            class="NoJSView-link"
+            href="https://enable-javascript.com/"
+            target="new"
+          >
+            Find out how
+            <div class="NoJSView-linkIconContainer">
+              <svg class="NoJSView-linkIcon" style="width: 12px;height: 12px;" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M12.583 7L7.992 2.409A1 1 0 1 1 9.407.993l6.3 6.3a1 1 0 0 1 0 1.414l-6.3 6.3a1 1 0 0 1-1.415-1.416L12.583 9H1a1 1 0 1 1 0-2z" fill-rule="evenodd"></path></svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</noscript>
+
+    <div class="IncompatibleBrowserView" id='app-incompatible-browser-view'>
+  <div class="IncompatibleBrowserView-card">
+    <div class="IncompatibleBrowserView-content">
+      <div class="IncompatibleBrowserView-warningIconContainer">
+        <svg class="IncompatibleBrowserView-warningIcon" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M10.115 1.308l5.635 11.269A2.365 2.365 0 0 1 13.634 16H2.365A2.365 2.365 0 0 1 .25 12.577L5.884 1.308a2.365 2.365 0 0 1 4.231 0zM8 10.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM8 9c.552 0 1-.32 1-.714V4.714C9 4.32 8.552 4 8 4s-1 .32-1 .714v3.572C7 8.68 7.448 9 8 9z" fill-rule="evenodd"></path></svg>
+      </div>
+
+      <div class="IncompatibleBrowserView-title">
+        Incompatible browser
+      </div>
+
+      <div class="IncompatibleBrowserView-body">
+        You need a modern browser to use the Stripe Dashboard. Please switch to a compatible browser to continue.
+      </div>
+
+      <div class="IncompatibleBrowserView-linkContainer">
+        <a
+          class="IncompatibleBrowserView-link"
+          href="https://stripe.com/docs/dashboard#browser-compatibility"
+          target="new"
+        >
+          View Stripe Dashboard browser compatibility
+          <div class="IncompatibleBrowserView-linkIconContainer">
+            <svg class="IncompatibleBrowserView-linkIcon" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M12.583 7L7.992 2.409A1 1 0 1 1 9.407.993l6.3 6.3a1 1 0 0 1 0 1.414l-6.3 6.3a1 1 0 0 1-1.415-1.416L12.583 9H1a1 1 0 1 1 0-2z" fill-rule="evenodd"></path></svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script nonce="+BhmIXZ7F/TOL9e8VoLkFg==">
+  function checkBrowserCompatibility() {
+    var ua = window.navigator.userAgent;
+    var isIE = ua.indexOf('Trident/') > -1 || ua.indexOf('MSIE ') > -1;
+    var chromeVersion = ua.match(/Chrom(e|ium)\/([0-9]+)\./);
+    var isDeprecatedChrome = !!chromeVersion && parseInt(chromeVersion[2], 10) < 72;
+    var edgeVersion = ua.match(/Edge\/([0-9]+)/);
+    var isDeprecatedEdge = !!edgeVersion && parseInt(edgeVersion[1], 10) < 72;
+    if (document.querySelector('#app-incompatible-browser-view')) {
+      if (isIE || isDeprecatedChrome || isDeprecatedEdge) {
+        document.querySelector('#app-incompatible-browser-view').style.display = 'flex';
+      }
+
+      if (window.JSON && JSON.stringify) {
+        // If we are loaded in a WebView in the Stripe app, we send an error message for metrics.
+        window.webkit &&
+          window.webkit.messageHandlers &&
+          window.webkit.messageHandlers.web_login_error &&
+          window.webkit.messageHandlers.web_login_error.postMessage &&
+          window.webkit.messageHandlers.web_login_error.postMessage(JSON.stringify({
+            errorCode: "unsupported_browser",
+            pageURL: window.location.pathname,
+          }));
+      }
+    }
+  }
+  window.__INCOMPATIBLE_BROWSER_CLIENT_INIT_TIMEOUT__ = window.addEventListener('DOMContentLoaded', function(e) {
+    setTimeout(checkBrowserCompatibility, 30000);
+  });
+</script>
+
+<style>
+#app-incompatible-browser-view {
+  display: none;
+}
+
+.IncompatibleBrowserView {
+  /* We want the incompatible browser content to take priority if it is rendered */
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  padding: 64px;
+  background-color: #e6ebf1;
+  align-items: center;
+
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Ubuntu,sans-serif;
+}
+
+.IncompatibleBrowserView-card {
+  overflow: hidden;
+  max-width: 480px;
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 0 7px 14px 0 rgba(60,66,87, .1), 0 3px 6px 0 rgba(0, 0, 0, .07);
+}
+
+.IncompatibleBrowserView-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 48px;
+}
+
+.IncompatibleBrowserView-warningIconContainer {
+  padding-bottom: 16px;
+}
+
+.IncompatibleBrowserView-warningIcon {
+  width: 64px;
+  height: 64px;
+  fill: #8792a2;
+}
+
+.IncompatibleBrowserView-body,
+.IncompatibleBrowserView-buttonLabel {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.IncompatibleBrowserView-title,
+.IncompatibleBrowserView-body {
+  display: block;
+  text-align: center;
+  color: #697386;
+}
+
+.IncompatibleBrowserView-title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  white-space: normal;
+}
+
+.IncompatibleBrowserView-body {
+  width: 100%;
+}
+
+.IncompatibleBrowserView-linkContainer {
+  display: flex;
+  padding-top: 16px;
+  justify-content: center;
+}
+
+.IncompatibleBrowserView-link {
+  display: flex;
+  color: #5469d4
+}
+
+.IncompatibleBrowserView-linkIconContainer {
+  margin-left: 4px;
+  transform: translateY(1.07px);
+}
+
+.IncompatibleBrowserView-linkIcon {
+  width: 12px;
+  height: 12px;
+  fill: #5469d4;
+}
+</style>
+
+    
+
+    <script type="application/json" id="login_preloaded_json">{&quot;fatal_initialization_error_i18n_key&quot;:null,&quot;error_action&quot;:null,&quot;hcaptcha_login_main_enabled&quot;:true,&quot;hcaptcha_login_main_site_key&quot;:&quot;ba52081d-da1f-466c-afa2-75aabdc729a7&quot;,&quot;hcaptcha_password_reset_enabled&quot;:true,&quot;hcaptcha_password_reset_site_key&quot;:&quot;85cebe3f-5f57-4c1d-898e-fdc71b941399&quot;,&quot;hcaptcha_login_backup_code_enabled&quot;:true,&quot;hcaptcha_login_backup_code_site_key&quot;:&quot;cf3419ca-de95-44f9-82cc-e61c50296c5d&quot;,&quot;hcaptcha_login_recover_enabled&quot;:true,&quot;hcaptcha_login_recover_site_key&quot;:&quot;e2c6331e-52ed-4e7c-a541-5885bc2594bf&quot;,&quot;hcaptcha_login_optout_enabled&quot;:true,&quot;hcaptcha_login_optout_site_key&quot;:&quot;a916fc41-2cfb-43ff-8611-2d8206550130&quot;,&quot;hcaptcha_login_confirm_email_enabled&quot;:true,&quot;hcaptcha_login_confirm_email_site_key&quot;:&quot;6cec0df5-ee1e-4d66-8dbb-c7d901207e44&quot;,&quot;recaptcha_enterprise_checkbox_key&quot;:&quot;6LcOeCEaAAAAALmUdD_aH5Y3Z4f_BtTW5BwjqGSk&quot;,&quot;recaptcha_enterprise_invisible_key&quot;:&quot;6LdzwiIaAAAAAOHEauFw8LsfEdp_q3F7wWlYipb5&quot;,&quot;passkeys_enabled&quot;:true,&quot;email&quot;:null,&quot;redact_code&quot;:false,&quot;ip_country&quot;:&quot;MX&quot;,&quot;confirm_card&quot;:null,&quot;confirm_email&quot;:null,&quot;confirm_email_destination&quot;:null,&quot;login_challenge&quot;:null,&quot;main_login&quot;:{&quot;merchant&quot;:null,&quot;error_msg&quot;:null,&quot;saml_error_details&quot;:null,&quot;saml_error&quot;:null,&quot;invite_code&quot;:null,&quot;account_invite&quot;:null,&quot;referral_invite&quot;:null,&quot;redirect_url&quot;:&quot;/org/search?query=is%3A\u0026search_context_id=org_6SpJC47zKVM7C8l0oyMS8cK\u0026type=organization\u0026fbclid=IwY2xjawLhZBdleHRuA2FlbQIxMQABHq5KChbBTwO8VJh6A4LPtK-bgGqdoExy_SUpT8VyALmJfTsL9s2cH6UZzZ9T_aem__EAva8Zj6TiY88xCdWuncQ&quot;,&quot;success_code&quot;:null,&quot;mobile_webview&quot;:false,&quot;error_code&quot;:null,&quot;two_factor_primary_method&quot;:null,&quot;two_factor_options&quot;:null,&quot;two_factor_method_options&quot;:null,&quot;redact_code&quot;:false,&quot;mini_session&quot;:null,&quot;owning_merchant_email&quot;:null,&quot;placement_code&quot;:null},&quot;recovery&quot;:null,&quot;recovery_cancel&quot;:null,&quot;reset_password&quot;:null,&quot;saml_two_step_authentication_required&quot;:null,&quot;saml_two_step_setup_required&quot;:null,&quot;email_link&quot;:null,&quot;account_recovery_identity_verification_enabled&quot;:true,&quot;google_tag_manager_api_key&quot;:&quot;GTM-WK8882T&quot;,&quot;page_titles&quot;:{}}</script>
+    <script type="application/json" data-length="3245" id="preloaded_json">{&quot;analytics_rb_event_id&quot;:&quot;b55835e6-27a9-4e75-9275-8a676a3534a1&quot;,&quot;csrf_token&quot;:&quot;5kX8L1A5cQD8EM65hjc-B90MK2Lz6yA3fVc2HqLFKoI2OB0rVJs_FXx95FAIsaf1fSfq_oqyEjkXCBeJbsGo_Tw-AYTZVJwBkw0gfgTOKGW3V8jbQH-d3SAJOAq1_AI77whjFZ2VeA==&quot;,&quot;current_version&quot;:&quot;2025-03-01.dashboard&quot;,&quot;hosts&quot;:{&quot;connect&quot;:&quot;https://connect.stripe.com&quot;,&quot;connect_js&quot;:&quot;https://connect-js.stripe.com&quot;,&quot;eidas_cert&quot;:&quot;https://eidas-cert.stripe.com&quot;,&quot;api&quot;:&quot;https://api.stripe.com&quot;,&quot;site&quot;:&quot;https://stripe.com&quot;,&quot;docs&quot;:&quot;https://docs.stripe.com&quot;,&quot;uploads&quot;:&quot;https://files.stripe.com&quot;,&quot;support&quot;:&quot;https://support.stripe.com&quot;,&quot;checkout&quot;:&quot;https://checkout.stripe.com&quot;,&quot;embedded_checkout&quot;:&quot;https://js.stripe.com/v3/embedded-checkout-inner.html&quot;,&quot;buy_button_app&quot;:&quot;https://js.stripe.com/v3/buy-button-app.html&quot;,&quot;pricing_table&quot;:&quot;https://js.stripe.com/v3/pricing-table-app.html&quot;,&quot;invoice&quot;:&quot;https://invoice.stripe.com&quot;,&quot;connections_auth&quot;:&quot;https://connections-auth.stripe.com&quot;,&quot;marketplace&quot;:&quot;https://marketplace.stripe.com&quot;,&quot;u2f_facets&quot;:&quot;https://dashboard.stripe.com&quot;,&quot;climate&quot;:&quot;https://climate.stripe.com&quot;,&quot;idprod&quot;:&quot;https://verify.stripe.com&quot;,&quot;support_conversations&quot;:&quot;https://support-conversations.stripe.com&quot;,&quot;dashboard&quot;:&quot;https://dashboard.stripe.com&quot;},&quot;flags&quot;:{&quot;user_auth_challenge_framework_integration_two_factor_setup&quot;:true,&quot;lazy_session_handoff&quot;:true,&quot;webauthn_touch_id_warning&quot;:false,&quot;register_page_email_typo_detection&quot;:true,&quot;acquisition_register_marketing_consent_update_v2&quot;:true,&quot;disable_india_registration_self_serve&quot;:true,&quot;sign_in_with_google&quot;:true,&quot;sign_in_with_google_mobile&quot;:true,&quot;sign_in_with_google_connect&quot;:true,&quot;sign_in_with_google_email_confirmation&quot;:true,&quot;sign_in_with_google_register_page&quot;:true,&quot;register_only_express_escape_hatch&quot;:true,&quot;security_checkup_email_confirmation&quot;:true,&quot;recovery_enable_all_options&quot;:false,&quot;require_email_verification_for_sms_2fa_enablement&quot;:true,&quot;login_use_sail_next_animation&quot;:false,&quot;sign_in_with_google_mobile_mandatory_password&quot;:false},&quot;recaptcha_key&quot;:&quot;6LezRwYTAAAAAClbeZahYjeSYHsbwpzjEQ0hQ1jB&quot;,&quot;recaptcha_invisible_key&quot;:&quot;6LfLtmEUAAAAAJe3piXBGzDBQIjMIjleVXHEOQoZ&quot;,&quot;recaptcha_enterprise&quot;:true,&quot;recaptcha_enterprise_checkbox_key&quot;:&quot;6LcOeCEaAAAAALmUdD_aH5Y3Z4f_BtTW5BwjqGSk&quot;,&quot;recaptcha_enterprise_invisible_key&quot;:&quot;6LdzwiIaAAAAAOHEauFw8LsfEdp_q3F7wWlYipb5&quot;,&quot;recaptcha_disabled&quot;:false,&quot;express_hcaptcha_site_key&quot;:&quot;cae1577d-ed44-49fd-a58a-d58fb709c8e2&quot;,&quot;stripethirdparty_base_url&quot;:&quot;https://b.stripecdn.com/stripethirdparty-srv/assets/&quot;,&quot;treatments&quot;:{&quot;acquisition_register_login_redesign&quot;:&quot;control&quot;,&quot;acquisition_sign_in_with_google_login_aa&quot;:&quot;control&quot;},&quot;handoff_routes&quot;:[[&quot;sprt&quot;,&quot;https://support.stripe.com/handoff-healthcheck&quot;,&quot;https://support.stripe.com/handoff&quot;],[&quot;conv&quot;,&quot;https://support-conversations.stripe.com/handoff-healthcheck&quot;,&quot;https://support-conversations.stripe.com/handoff&quot;],[&quot;site&quot;,&quot;https://stripe.com/handoff-healthcheck&quot;,&quot;https://stripe.com/handoff&quot;],[&quot;mrkt&quot;,&quot;https://marketplace.stripe.com/handoff-healthcheck&quot;,&quot;https://marketplace.stripe.com/handoff&quot;],[&quot;dash&quot;,&quot;https://connect.stripe.com/handoff-healthcheck&quot;,&quot;https://connect.stripe.com/handoff&quot;],[&quot;nxds&quot;,&quot;https://dashboard.stripe.com/handoff-healthcheck&quot;,&quot;https://dashboard.stripe.com/sessions/handoff_uat&quot;],[&quot;site&quot;,&quot;https://docs.stripe.com/handoff-healthcheck&quot;,&quot;https://docs.stripe.com/handoff&quot;]]}</script>
