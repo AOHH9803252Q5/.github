@@ -2,3 +2,36 @@
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "features": "0x1bfcded0" {}
 }
+
+CREATE TABLE Evento (
+    id_evento VARCHAR(20) PRIMARY KEY,
+    fecha_hora TIMESTAMP NOT NULL,
+    origen VARCHAR(50),
+    tipo_evento VARCHAR(30),
+    severidad VARCHAR(10)
+);
+
+CREATE TABLE Mensaje (
+    id_mensaje SERIAL PRIMARY KEY,
+    id_evento VARCHAR(20) REFERENCES Evento(id_evento),
+    contenido TEXT,
+    codigo_error VARCHAR(20),
+    contexto TEXT
+);
+
+CREATE TABLE Etiqueta (
+    id_etiqueta SERIAL PRIMARY KEY,
+    id_evento VARCHAR(20) REFERENCES Evento(id_evento),
+    nombre_etiqueta VARCHAR(30),
+    valor VARCHAR(50),
+    categoria VARCHAR(30)
+);
+
+CREATE TABLE Verificacion (
+    id_verificacion SERIAL PRIMARY KEY,
+    id_evento VARCHAR(20) REFERENCES Evento(id_evento),
+    fecha_verificacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    estado VARCHAR(15),
+    responsable VARCHAR(50),
+    comentarios TEXT
+);
