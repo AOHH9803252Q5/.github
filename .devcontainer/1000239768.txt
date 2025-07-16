@@ -1,0 +1,37 @@
+# Análisis de Registros del Sistema
+
+Basado en los registros proporcionados, puedo identificar varios eventos del sistema Android:
+
+## Eventos Clave en 1000239768.jpg:
+1. **Servicio ThermalManagerService**:
+   - Reinicio programado a las 19:13:22 (PID 29989)
+   - Otro reinicio a las 19:13:24 (PID 763)
+   - Proceso iniciado para com.longcheertel.cit.test (PID 4207)
+
+2. **Interacción con Google Play Services**:
+   - Actividad de feedback (FeedbackAlohaActivity) recibiendo y perdiendo foco
+   - Cambios en el foco de ventana relacionados con esta actividad
+
+## Eventos Clave en 1000239770.jpg:
+1. **Problemas con C2MtkConvert**:
+   - Múltiples errores "fetchGraphicBlock returned C2_BAD_VALUE" (posible problema con buffers gráficos)
+
+2. **Cambios en el administrador de ventanas**:
+   - Cambio de foco desde LogAccessDialogActivity a PreviewActivity de Google Play Services
+
+3. **Operaciones de SurfaceFlinger**:
+   - Capturas de pantalla relacionadas con LogAccessDialogActivity
+
+## Recomendaciones para recrear en máquina virtual:
+
+1. **Configuración básica**:
+   - Usar una imagen de Android x86 con al menos API nivel 28
+   - Asignar suficientes recursos (mínimo 2GB RAM, 2 CPUs)
+
+2. **Componentes a incluir**:
+   - Servicios de Google Play (para reproducir las actividades de feedback)
+   - Aplicaciones relacionadas con com.longcheertel.sarauth y com.longcheertel.cit.test
+
+3. **Monitoreo**:
+   - Habilitar registro detallado de WindowManager y ActivityManager
+   - Monitorear SurfaceFlinger y componentes multimedia
