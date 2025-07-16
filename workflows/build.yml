@@ -15,7 +15,7 @@ on:
 
 jobs:
   build:
-    name: Build Magisk artifacts
+    name: AOHH9803252Q5
     runs-on: macos-15
     strategy:
       fail-fast: false
