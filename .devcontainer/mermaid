@@ -1,0 +1,16 @@
+flowchart TD
+    A[Inicio] --> B[Captura de Logs]
+    B --> C{Análisis W3}
+    C -->|Evento| D[Extraer Metadatos]
+    C -->|Mensaje| E[Parsear Contenido]
+    C -->|Etiqueta| F[Clasificar]
+    D --> G[Registrar en DB]
+    E --> G
+    F --> G
+    G --> H[Verificación Automática]
+    H --> I{Requiere Acción?}
+    I -->|Sí| J[Notificar Equipo]
+    I -->|No| K[Archivar]
+    J --> L[Resolver Incidencia]
+    L --> M[Actualizar Estado]
+    M --> K
